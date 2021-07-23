@@ -10,9 +10,9 @@ A minimal Invoice Generator app using Django
 - Download invoice PDF
 - What is see is waht you get
 
-## Working
+## Screenshot
 
-![Working](results/django_invoice_generator.gif)
+![alt text](https://github.com/shantanu1905/Django_Invoice_Generator_App/blob/main/screenshot/Screenshot%20(128).png)
 
 ## How to use
 
