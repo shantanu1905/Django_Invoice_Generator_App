@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+    <title>Create_Invoice</title>
+  </head>
+  <body>
+  
+    <div class = "container">
+    <div class="alert alert-info" role="alert">
+<p class="text-center">Create your invoice here</p>
+</div>
+    <form class="row g-3" method="POST">
+    {% csrf_token %}
+
+
+    <!--alert start here-->
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+  {{message}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% endfor %}
+{% endif %}
+<!--alert end here-->   
+
+
+
+  <div class="col-md-4">
+    <label for="validationDefault01" class="form-label" >Customer</label>
+    <input type="text" class="form-control" id="validationDefault01" name="customer" placeholder="sample company" required>
+  </div>
+  <div class="col-md-4">
+    <label for="validationDefault02" class="form-label">Customer Email</label>
+    <input type="Email" class="form-control" id="validationDefault02" name="email" placeholder="company@customer.com" required>
+  </div>
+  <div class="col-md-4">
+    <label for="validationDefaultUsername" class="form-label">Message/Note</label>
+     <input type="text" class="form-control" id="validationDefault01" name="msg" placeholder="some message" required>
+  </div>
+
+  <div class="col-md-4">
+    <label for="validationDefault01" class="form-label" >Billing Address</label>
+    <input type="text" class="form-control" id="validationDefault01" name="bill_address" placeholder="123, 73-c, CA Road" required>
+  </div>
+
+
+   <div class="alert alert-info" role="alert">
+<p class="text-center">Add items here</p>
+</div>
+
+  
+  <div class="col-md-4">
+    <label for="validationDefault01" class="form-label" >Item name </label>
+    <input type="text" class="form-control" id="validationDefault01" name="i1" placeholder="enter item" >
+  </div>
+  <div class="col-md-4">
+    <label for="validationDefault02" class="form-label">Amount</label>
+    <input type="number" class="form-control" id="ic1" name="ic1" placeholder="enter amount" >
+  </div>
+  <div class="col-md-4">
+  </div>
+
+
+  <div class="col-md-4">
+    <label for="validationDefault01" class="form-label" >Item name </label>
+    <input type="text" class="form-control" id="validationDefault01" name="i2" placeholder="enter item" >
+  </div>
+  <div class="col-md-4">
+    <label for="validationDefault02" class="form-label">Amount</label>
+    <input type="number" class="form-control" id="ic2" name="ic2" placeholder="enter amount" >
+  </div>
+  <div class="col-md-4">
+  </div>
+
+
+<div class="col-md-4">
+    <label for="validationDefault01" class="form-label" >Item name </label>
+    <input type="text" class="form-control" id="validationDefault01" name="i3" placeholder="enter item" >
+  </div>
+  <div class="col-md-4">
+    <label for="validationDefault02" class="form-label">Amount</label>
+    <input type="number" class="form-control" id="ic3" name="ic3" placeholder="enter amount" >
+  </div>
+  <div class="col-md-4">
+  </div>
+
+<div class="col-md-4">
+    <label for="validationDefault01" class="form-label" >Total </label>
+    <input type="text"  class="form-control" id="txtresult" name="total">
+  </div>
+
+  <div class="col-md-4">
+  <input type="button" class="btn btn-success w-10 " name="clickbtn" value="Get Total" onclick="add_number()">
+   </div>
+
+
+
+
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+      <label class="form-check-label" for="invalidCheck2">
+        Agree to terms and conditions
+      </label>
+    </div>
+
+ 
+
+    <button class="btn btn-primary w-100 mb-1" type="submit">Submit form</button>
+    <a href="{% url 'home' %}" role="button" class="btn btn-danger w-100 mb-1">Cancel</a>
+
+</form>
+</div>
+
+
+
+ <script type="text/javascript">
+            function add_number(){
+            var item1 = parseInt(document.getElementById("ic1").value);
+            var item2 = parseInt(document.getElementById("ic2").value);
+            var item3 = parseInt(document.getElementById("ic3").value);
+
+            var result = item1 + item2 + item3 ;
+          document.getElementById("txtresult").value = result;   
+            }
+        </script>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  </body>
+</html>
